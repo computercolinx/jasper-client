@@ -122,7 +122,7 @@ class PocketSphinxSTT(AbstractSTTEngine):
                                  "hmm_dir in your profile.",
                                  hmm_dir, ', '.join(missing_hmm_files))
 
-        config = ps.Decoder.get_default_config()
+        config = ps.Decoder.default_config()
         config.set_string('-hmm',hmm_dir)
         config.set_string('-logfn',self._logfile)
         self._decoder = ps.Decoder(config)

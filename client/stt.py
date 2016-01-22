@@ -123,9 +123,9 @@ class PocketSphinxSTT(AbstractSTTEngine):
                                  hmm_dir, ', '.join(missing_hmm_files))
 
         config = ps.Decoder.get_default_config()
-	    config.set_string('-hmm',hmm_dir)
-	    config.set_string('-logfn',self._logfile)
-	    self._decoder = ps.Decoder(config)
+        config.set_string('-hmm',hmm_dir)
+        config.set_string('-logfn',self._logfile)
+        self._decoder = ps.Decoder(config)
 
     def __del__(self):
         os.remove(self._logfile)

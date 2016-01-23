@@ -157,7 +157,7 @@ class Mic:
         frames = frames[-20:]
 
         # otherwise, let's keep recording for few seconds and save the file
-        DELAY_MULTIPLIER = 1
+        DELAY_MULTIPLIER = 5
         for i in range(0, RATE / CHUNK * DELAY_MULTIPLIER):
 
             data = stream.read(CHUNK)

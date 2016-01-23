@@ -236,7 +236,7 @@ class Mic:
             average = sum(lastN) / float(len(lastN))
 
             # TODO: 0.8 should not be a MAGIC NUMBER!
-            if average < THRESHOLD * 0.8:
+            if average < THRESHOLD * 0.4:
                 break
 
         self.speaker.play(jasperpath.data('audio', 'beep_lo_new.wav'))

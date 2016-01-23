@@ -125,8 +125,8 @@ class PocketSphinxSTT(AbstractSTTEngine):
         config = ps.Decoder.default_config()
         config.set_string('-hmm',hmm_dir)
         config.set_string('-logfn',self._logfile)
-        config.set_string('-lm',vocabulary.languagemodel_file())
-        config.set_string('-dict',vocabulary.dictionary_file())		
+        config.set_string('-lm',vocabulary.languagemodel_file)
+        config.set_string('-dict',vocabulary.dictionary_file)		
         self._decoder = ps.Decoder(config)
 
     def __del__(self):

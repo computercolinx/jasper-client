@@ -169,7 +169,7 @@ class PocketSphinxSTT(AbstractSTTEngine):
 
         try:
 	        result = self._decoder.hyp().hypstr
-		except AttributeError:
+		except:
 		    result = ''
         with open(self._logfile, 'r+') as f:
             for line in f:

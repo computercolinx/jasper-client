@@ -254,7 +254,7 @@ class PocketsphinxVocabulary(AbstractVocabulary):
                                            hmm='/path/to/hmm')
 
         """
-        return {'lm': self.languagemodel_file, 'dict': self.dictionary_file}
+        return {'-lm': self.languagemodel_file, '-dict': self.dictionary_file}
 
     def _compile_vocabulary(self, phrases):
         """

@@ -209,8 +209,8 @@ class Mic:
         # check if no threshold provided
         if THRESHOLD is None:
             THRESHOLD = self.fetchThreshold()
-
-        self.speaker.play(jasperpath.data('audio', 'beep_hi_new.wav'))
+        self.say("Listening...")
+#        self.speaker.play(jasperpath.data('audio', 'beep_hi_new.wav'))
 
         # prepare recording stream
         stream = self._audio.open(format=pyaudio.paInt16,
@@ -239,8 +239,8 @@ class Mic:
             if average < THRESHOLD * 0.4:
                 break
 
-        self.speaker.play(jasperpath.data('audio', 'beep_lo_new.wav'))
-
+        #self.speaker.play(jasperpath.data('audio', 'beep_lo_new.wav'))
+        self.say("Okay")
         # save the audio data
         stream.stop_stream()
         stream.close()

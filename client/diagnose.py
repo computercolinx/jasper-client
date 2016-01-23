@@ -104,7 +104,7 @@ def get_pip_requirements(fname=os.path.join(jasperpath.LIB_PATH,
     """
     logger = logging.getLogger(__name__)
     if os.access(fname, os.R_OK):
-        reqs = list(pip.req.parse_requirements(fname),session=pip.download.PipSession())
+        reqs = list(pip.req.parse_requirements(fname,session=pip.download.PipSession()))
         logger.debug("Found %d PIP requirements in file '%s'", len(reqs),
                      fname)
         return reqs

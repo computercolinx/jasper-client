@@ -167,7 +167,7 @@ class PocketSphinxSTT(AbstractSTTEngine):
         self._decoder.process_raw(data, False, True)
         self._decoder.end_utt()
 
-        result = self._decoder.get_hyp()
+        result = self._decoder.hyp()
         with open(self._logfile, 'r+') as f:
             for line in f:
                 self._logger.debug(line.strip())

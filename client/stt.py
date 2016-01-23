@@ -168,9 +168,9 @@ class PocketSphinxSTT(AbstractSTTEngine):
         self._decoder.end_utt()
 
         try:
-	        result = self._decoder.hyp().hypstr
-		except:
-		    result = ''
+            result = self._decoder.hyp().hypstr
+        except:
+            result = ''
         with open(self._logfile, 'r+') as f:
             for line in f:
                 self._logger.debug(line.strip())

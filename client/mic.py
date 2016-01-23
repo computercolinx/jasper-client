@@ -92,7 +92,7 @@ class Mic:
         needs to be restarted.
         """
 
-        THRESHOLD_MULTIPLIER = 1.8
+        THRESHOLD_MULTIPLIER = 2.5
         RATE = 16000
         CHUNK = 1024
 

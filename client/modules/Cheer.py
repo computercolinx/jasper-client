@@ -4,6 +4,7 @@ Created on Sat Jan 23 21:37:02 2016
 
 @author: compu_000
 """
+import random
 import re
 WORDS = ["CHEER"]
 

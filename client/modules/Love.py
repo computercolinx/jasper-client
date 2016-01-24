@@ -22,7 +22,7 @@ def handle(text, mic, profile):
     messages = ["I love you too!",
                 "I know",
                 "Who doesn't love you?"]
-   message = random.choice(messages)
+    message = random.choice(messages)
 
     mic.say(message)
 

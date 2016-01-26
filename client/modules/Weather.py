@@ -23,7 +23,7 @@ def handle(text, mic, profile):
     forecast_time = datetime.datetime.now()
     if bool(re.search(r'\b(tonight)\b', text, re.IGNORECASE)):
         forecast_time = datetime.datetime.combine(datetime.datetime.now().date(),datetime.time(hour=21))
-    else if bool(re.search(r'\b(tomorrow)\b', text, re.IGNORECASE)):
+    elif bool(re.search(r'\b(tomorrow)\b', text, re.IGNORECASE)):
         forecast_time = datetime.datetime.combine(datetime.datetime.now().date(),datetime.time(hour=12))
         forecast_time = time + datetime.timedelta(days=1)
     forecast = forecastio.load_forecast(api_key,lat, long,time=forecast_time)

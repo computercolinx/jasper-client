@@ -26,7 +26,7 @@ def handle(text, mic, profile):
         for i in range(3):
             headline = cnn_feed.entries[i].description
             headline = headline[:string.find(headline,"<")]
-            all_titles = all_titles + cnn_feed.entries[i].description + ' '
+            all_titles = all_titles + headline + ' '
         mic.say("Here are the current top headlines. " + all_titles)            
     except:
         mic.say("Error retrieving articles")

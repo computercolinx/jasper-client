@@ -1,6 +1,7 @@
 # -*- coding: utf-8-*-
 import re
 import feedparser
+import string
 WORDS = ["NEWS", "YES", "NO", "FIRST", "SECOND", "THIRD"]
 
 PRIORITY = 3
@@ -23,6 +24,8 @@ def handle(text, mic, profile):
         cnn_feed = feedparser.parse('http://rss.cnn.com/rss/cnn_topstories.rss')
         all_titles = ''
         for i in range(3):
+            headline = cnn_feed.entries[i].description
+            headline = headline[:string.find(headline,"<")]
             all_titles = all_titles + cnn_feed.entries[i].description + ' '
         mic.say("Here are the current top headlines. " + all_titles)            
     except:

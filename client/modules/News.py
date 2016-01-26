@@ -23,6 +23,7 @@ def handle(text, mic, profile):
         cnn_paper = newspaper.build('http://cnn.com')
         all_titles = ''
         for article in cnn_paper.articles[:3]:
+            article.download()
             all_titles = all_titles + article.title + ' '
         mic.say("Here are the current top headlines. " + all_titles)            
     except:

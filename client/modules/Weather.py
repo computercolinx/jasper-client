@@ -28,7 +28,7 @@ def handle(text, mic, profile):
         forecast_time = forecast_time + datetime.timedelta(days=1)
     forecast = forecastio.load_forecast(api_key,lat, long,time=forecast_time)
     response = "The forecast is " + forecast.currently().summary + " with a temperature of " \
-    forecast.currently().temperature + " and a %d chance of precipitation" % forecast.currently.precipProbability
+    forecast.currently().temperature + " and a %d chance of precipitation" % forecast.currently().precipProbability
     mic.say(response)
     
 def isValid(text):

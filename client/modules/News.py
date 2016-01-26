@@ -22,8 +22,8 @@ def handle(text, mic, profile):
     try:
         cnn_feed = feedparser.parse('http://rss.cnn.com/rss/cnn_topstories.rss')
         all_titles = ''
-        for i in range(3)
-            all_titles = all_titles + cnn_feed.entries[0].description + ' '
+        for i in range(3):
+            all_titles = all_titles + cnn_feed.entries[i].description + ' '
         mic.say("Here are the current top headlines. " + all_titles)            
     except:
         mic.say("Error retrieving articles")

@@ -27,7 +27,7 @@ def handle(text, mic, profile):
         forecast_time = datetime.datetime.combine(datetime.datetime.now().date(),datetime.time(hour=12))
         forecast_time = time + datetime.timedelta(days=1)
     forecast = forecastio.load_forecast(api_key,lat, long,time=forecast_time)
-    mic.say(forecast.summary)
+    mic.say(forecast.currently().summary)
     
 def isValid(text):
     """

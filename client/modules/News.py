@@ -1,6 +1,6 @@
 # -*- coding: utf-8-*-
 import re
-import newspaper
+import feedparser
 WORDS = ["NEWS", "YES", "NO", "FIRST", "SECOND", "THIRD"]
 
 PRIORITY = 3
@@ -20,12 +20,10 @@ def handle(text, mic, profile):
     """
     mic.say("Pulling up the news")
     try:
-        cnn_paper = newspaper.build('http://cnn.com')
+        cnn_feed = feedparser.parse('http://rss.cnn.com/rss/cnn_topstories.rss')
         all_titles = ''
-        for article in cnn_paper.articles[:3]:
-            article.download()
-            article.parse()
-            all_titles = all_titles + article.title + ' '
+        for i in range(3)
+            all_titles = all_titles + cnn_feed.entries[0].description + ' '
         mic.say("Here are the current top headlines. " + all_titles)            
     except:
         mic.say("Error retrieving articles")

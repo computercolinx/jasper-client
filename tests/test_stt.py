@@ -40,7 +40,7 @@ class TestSTT(unittest.TestCase):
         """
         with open(self.jasper_clip, mode="rb") as f:
             transcription = self.passive_stt_engine.transcribe(f)
-        self.assertIn("JASPER", transcription)
+        self.assertIn("CHARLIE", transcription)
 
     def testTranscribe(self):
         """

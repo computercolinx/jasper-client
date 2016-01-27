@@ -26,7 +26,7 @@ def handle(text, mic, profile):
             stock_info = ys.get_all(symbol)
             print stock_info
             current_out = symbol + " Current Price is " + stock_info['price'] + \
-            " with a daily change of " + stock_info['change'] + " ..."
+            " with a daily change of " + stock_info['change'] + " ... "
             print current_out
             output = output + current_out
         mic.say(output)

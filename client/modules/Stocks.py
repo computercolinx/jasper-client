@@ -1,8 +1,7 @@
 # -*- coding: utf-8-*-
 import re
-import feedparser
-import string
-WORDS = ["NEWS", "YES", "NO", "FIRST", "SECOND", "THIRD"]
+import ystockquote as ys
+WORDS = ["STOCKS"]
 
 PRIORITY = 3
 
@@ -19,16 +18,16 @@ def handle(text, mic, profile):
         profile -- contains information related to the user (e.g., phone
                    number)
     """
-    mic.say("Pulling up the news")
+    mic.say("Getting Stock Info")
     try:
-        news_feed = feedparser.parse(profile['news']['site'])
-        all_titles = ''
-        for i in range(profile['news']['num_articles']):
-            headline = news_feed.entries[i].description
-            all_titles = all_titles + headline + ' '
-        mic.say("Here are the current top headlines. " + all_titles)            
+        output = ''
+        for symbol in profile['stocks']:
+            stock_info = ys.get_all(symbol)
+            current_out = "Current Price is %d with a daily change of %d ..." % stock_info['price'], stock_info['change']
+            output = output + current_out
+        mic.say(output)
     except:
-        mic.say("Error retrieving articles")
+        mic.say("Error retrieving stocks")
 
 
 
@@ -39,4 +38,4 @@ def isValid(text):
         Arguments:
         text -- user-input, typically transcribed speech
     """
-    return bool(re.search(r'\b(news|headline)\b', text, re.IGNORECASE))
+    return bool(re.search(r'\bstocks\b', text, re.IGNORECASE))

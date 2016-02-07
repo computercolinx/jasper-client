@@ -23,8 +23,7 @@ def handle(text, mic, profile):
     """
     mic.say("Getting time to work")
     gmaps = googlemaps.Client(key=profile['keys']['GOOGLE_SPEECH'])
-    distance = 
-    now = datetime.now()
+    now = datetime.datetime.now()
     directions_result = gmaps.distance_matrix(profile['home'],
                                      profile['work'],
                                      mode="driving",
